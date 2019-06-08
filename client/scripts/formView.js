@@ -42,6 +42,14 @@ var FormView = {
     // Stop the browser from submitting the form
     event.preventDefault();
     
+    // add click event handler to submit new messages
+    $('.submit').click(function (){
+      // append input text to message div
+      // input.value** grabs value of what is inputted into text box
+      $('#message').val()
+      alert('poop')
+    });
+
     console.log('click!');
   },
 
