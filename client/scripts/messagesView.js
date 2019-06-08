@@ -5,12 +5,22 @@ var MessagesView = {
   initialize: function() {
   },
 
-  render: function() {
-    for(var i = 0; i < this.results.length; i++)
-    messageView[results[i]]
+  render: function(obj) {
+    var msg = "";
+    for ( var i = 0; i < obj.results.length; i++) {
+      //console.log(this);
+      if(obj.results[i].username === undefined) {
+        obj.results[i].username = "anonymous";
+      }
+      if(obj.results[i].text === undefined) {
+        obj.results[i].text = "";
+      }
+      msg += MessageView.render(obj.results[i]);
+      this.$chats.append(msg);
+    }
   }
-
 };
+
 
 
 // var MessagesView = {
