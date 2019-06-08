@@ -44,12 +44,22 @@ var FormView = {
     
     // add click event handler to submit new messages
     $('.submit').click(function (){
+
+      var message = {
+        room: 'lobby',
+        text: FormView.$form.find($('#message')).val(),
+        username: App.username
+      };
+
       // append input text to message div
       // input.value** grabs value of what is inputted into text box
-      $('#message').val()
-      alert('poop')
+      // $('#message').val()
+      Parse.create(message, ()=>{
+        Messages.add(message);
+        MessagesView.render();
+      });
+     
     });
-
     console.log('click!');
   },
 

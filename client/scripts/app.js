@@ -19,8 +19,9 @@ var App = {
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      console.log(data);
-      MessagesView.render(data);
+      Messages._data = data.results;
+      console.log(Messages);
+      MessagesView.render();
       // call function in messageSview.js because data lives here
       callback();
     });
